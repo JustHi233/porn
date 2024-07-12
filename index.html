@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Porn Cat</title>
+    <style>
+        body, html {
+			color: #fff;
+            width: 100vw;
+            height: 100%;
+            margin: 0;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            /* background-color: #fef8e1; */
+            background-image: url(bg.png);
+            /* background-size: cover; */
+            /* background-repeat: no-repeat; */
+            height: 100vh;
+            width: 100vw;
+			        }
+		button{
+			border: 0;
+			color: #fff;
+		}
+        #header {
+            text-align: center;
+            margin-top: 20px;
+            z-index: 2; 
+        }
+        #container {
+            position: relative;
+            flex: 1;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+		#container img{
+			width:30%
+		}
+        svg {
+            cursor: pointer;
+            width: 200px;
+            height: 200px;
+            position: relative;
+            z-index: 2; 
+        }
+        .random-text {
+            position: absolute;
+            font-size: 24px;
+            /* color: #333; */
+            animation: fade-in 1s ease-in-out;
+            z-index: 1; 
+        }
+        @keyframes fade-in {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .buttons {
+            margin-top: 20px;
+            z-index: 2; 
+        }
+        .buttons button {
+            margin: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .background-video {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            min-width: 100%;
+            min-height: 100%;
+            z-index: -1; 
+        }
+		@media (max-width:800px){
+			#container {
+			    position: relative;
+			    flex: 1;
+			    width: 90%;
+			    display: flex;
+			    justify-content: center;
+			    align-items: center;
+			    overflow: hidden;
+			}
+			
+			#container img{
+				width:100%
+			}
+		}
+		
+    </style>
+</head>
+<body>
+    
+    <div id="header">
+        <h1 style="font-size: 50px;text-shadow: 2px 2px 5px black;">Porn Cat</h1>
+        <h3 style="margin-top: -30px;text-shadow: 2px 2px 5px black;">Solana hot summer baby</h3>
+        <div class="buttons">
+            <button onclick="location.href='#'" style="background-color: #0fda00;">Pump.fun</button>
+            <button onclick="location.href='#'" style="background-color: #00a7fd;">Telegram</button>
+            <button onclick="location.href='#'" style="background-color: #222;">X</button>
+        </div>
+    </div>
+    <div id="container">
+        <img id="svg1" src="2j.png" alt="SVG image" >
+        <img id="svg2" src="3j.gif" alt="SVG image" style="display:none;">
+        <audio id="audio" src="bg.mp3" loop></audio>
+    </div>
+    <script>
+        const svg1 = document.getElementById('svg1');
+        const svg2 = document.getElementById('svg2');
+        const audio = document.getElementById('audio');
+        const container = document.getElementById('container');
+
+        const texts = ["MEOW", "MEOW", "MEOW"];
+        let isPlaying = false;
+        let textInterval;
+
+        svg1.addEventListener('click', toggleSVG);
+        svg2.addEventListener('click', toggleSVG);
+
+        function toggleSVG() {
+            if (isPlaying) {
+                svg2.style.display = 'none';
+                svg1.style.display = 'block';
+                audio.pause();
+                audio.currentTime = 0;
+                clearInterval(textInterval);
+                removeAllTexts();
+            } else {
+                svg1.style.display = 'none';
+                svg2.style.display = 'block';
+                audio.play();
+                textInterval = setInterval(displayRandomText, 500);
+            }
+            isPlaying = !isPlaying;
+        }
+
+        function displayRandomText() {
+            const randomText = texts[Math.floor(Math.random() * texts.length)];
+            const textElement = document.createElement('div');
+            textElement.className = 'random-text';
+            textElement.innerText = randomText;
+            const containerRect = container.getBoundingClientRect();
+            const maxX = containerRect.width - 150;
+            const maxY = containerRect.height - 50;
+            const offsetX = -75;
+            const offsetY = -25;
+            let top, left;
+
+            do {
+                top = Math.random() * (maxY - offsetY * 2) + offsetY;
+                left = Math.random() * (maxX - offsetX * 2) + offsetX;
+            } while (isOverlap(top, left, containerRect.width, containerRect.height));
+
+            textElement.style.top = top + 'px';
+            textElement.style.left = left + 'px';
+            container.appendChild(textElement);
+
+            
+            setTimeout(() => {
+                textElement.remove();
+            }, 2000);
+        }
+
+        function isOverlap(top, left, containerWidth, containerHeight) {
+            const svgRect = svg1.getBoundingClientRect();
+            const buffer = 50;
+
+            return (
+                top > svgRect.top - buffer &&
+                top < svgRect.bottom + buffer &&
+                left > svgRect.left - buffer &&
+                left < svgRect.right + buffer
+            );
+        }
+
+        function removeAllTexts() {
+            const texts = document.querySelectorAll('.random-text');
+            texts.forEach(el => el.remove());
+        }
+    </script>
+</body>
+</html>
