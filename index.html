@@ -1,0 +1,535 @@
+<div style="width: 100vw; height: 100vh; overflow: auto;">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Porn Cat</title>
+    <style>
+        body, html {
+			color: #fff;
+            width: 100vw;
+            height: 100%;
+            margin: 0;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #000;
+            /* background-image: url(bg.png); */
+            background-size: cover;
+            background-repeat: no-repeat;
+            height: 100vh;
+            width: 100vw;
+			        }
+		button{
+			border: 0;
+			color: #fff;
+		}
+		#first{
+			background-image: url(bg.png);
+			height: 90vh;
+			background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+		}
+		
+        #header {
+            text-align: center;
+            z-index: 2; 
+        }
+        #container {
+    position: relative;
+    flex: 1;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    overflow: hidden;
+}
+
+#light, #camera {
+    width: 15%; 
+}
+
+#svg1, #svg2 {
+    width: 30%;
+}
+		#container img{
+			width:30%
+		}
+		
+		 .photo-container {
+		            display: flex;
+		            flex-wrap: wrap;
+		            justify-content: space-between;
+					padding: 20px;
+		        }
+		        .item {
+		            width: 330px;
+		            margin-bottom: 20px;
+		        }
+		        .item img {
+		            width: 100%;
+		            height: auto;
+					margin-bottom: 4px;
+		        }
+		        .title {
+		            font-size: 15px;
+		            font-weight: bold;
+		            margin-top: 5px;
+		        }
+		        .subtitle {
+		            font-size: 13px;
+		            color: gray;
+					
+		        }
+		
+        /* svg {
+            cursor: pointer;
+            width: 200px;
+            height: 200px;
+            position: relative;
+            z-index: 2; 
+        } */
+		
+		svg{
+			padding: 10 4 0 4px;
+			float: left;
+		}
+		
+        .random-text {
+            position: absolute;
+            font-size: 24px;
+            /* color: #333; */
+            animation: fade-in 1s ease-in-out;
+            z-index: 1; 
+        }
+		
+		   .playgame {
+		            display: flex;
+		            flex-wrap: wrap;
+		            justify-content: space-between;
+		            /* gap: 10px; */
+					padding: 0 20px;
+		        }
+		       .playgame .item {
+		            width: 330px;
+		            height: 450px;
+		            perspective: 1000px;
+		            margin-bottom: 10px;
+		        }
+		        .flip-card {
+		            width: 100%;
+		            height: 100%;
+		            position: relative;
+		            transform-style: preserve-3d;
+		            transition: transform 0.6s;
+		        }
+		        .flip-card-inner {
+		            position: absolute;
+		            width: 100%;
+		            height: 100%;
+		            backface-visibility: hidden;
+		        }
+		        .flip-card-front, .flip-card-back {
+		            position: absolute;
+		            width: 100%;
+		            height: 100%;
+		        }
+		        .flip-card-back {
+		            transform: rotateY(180deg);
+		        }
+		        .playgame .item.flipped .flip-card {
+		            transform: rotateY(180deg);
+		        }
+		
+        @keyframes fade-in {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .buttons {
+            margin-top: 20px;
+            z-index: 2; 
+        }
+        .buttons button {
+            margin: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .background-video {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            min-width: 100%;
+            min-height: 100%;
+            z-index: -1; 
+        }
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 3;
+}
+
+.popup-content {
+    background: #000000;
+    color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 400px;
+    width: 80%;
+    border: 1px solid #fc8738;
+}
+
+#confirmButton {
+    background-color: #fc8738;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+#confirmButton:hover {
+    background-color: #ff2103;
+}
+		@media (max-width:800px){
+			#container {
+			    position: relative;
+			    flex: 1;
+			    width: 90%;
+			    display: flex;
+			    justify-content: center;
+			    align-items: center;
+			    overflow: hidden;
+			}
+			
+			#container img{
+				width:100%
+			}
+			
+			.playgame .item {
+			    width: 180px;
+			    height: 230px;
+			    perspective: 1000px;
+			    margin-bottom: 10px;
+			}
+		}
+		
+    </style>
+</head>
+<body>
+<div id="popup" class="popup">
+    <div class="popup-content">
+	<p style="font-size:22px;color:#fc8738;text-align:center">WARNING</p>
+        <p>This is a cat sex website. If you are not an adult cat or you accidentally accessed this site, please leave.</p>
+        <button id="confirmButton">I am an adult cat</button>
+    </div>
+</div>
+    <div id="first">
+    	<div id="header">
+    	    <!-- <h1 style="font-size: 50px;text-shadow: 2px 2px 5px black;">Porn Cat</h1> -->
+    	<img src="font.png" alt=""  style="width: 200px;
+    	margin-bottom: 40px;margin-top: 20px;">
+    	    <h3 style="margin-top: -30px;text-shadow: 2px 2px 5px black;">Solana hot summer baby</h3>
+    	    <div class="buttons">
+    	        <button onclick="location.href='#'" style="background-color: #fc8738;">Pump.fun</button>
+    	        <button onclick="location.href='https://t.me/PornCat_Onsol'" style="background-color: #00a7fd;">Telegram</button>
+    	        <button onclick="location.href='https://x.com/PornCat_Onsol'" style="background-color: #222;">X</button>
+    	    </div>
+    	</div>
+    	<div id="container">
+    <img id="light" src="light1.png" alt="Light">
+    <img id="svg1" src="2j.png" alt="SVG image">
+    <img id="svg2" src="3j.gif" alt="SVG image" style="display:none;">
+    <img id="camera" src="camera1.png" alt="Camera">
+    <audio id="audio" src="bg.mp3" loop=""></audio>
+	<audio id="dynamicAudio" src="dynamic.mp3"  loop=""></audio>
+</div>
+    </div>
+    <div class="title" style="text-align: center;font-size: 26px;color: #fff;">
+    	<p>PornCat Playlist</p>
+    </div>
+	<div class="photo-container">
+	
+	        <!-- 1th -->
+	        <div class="item">
+	            <img src="g1.gif">
+				<div class="subtitle">Hot Wife XXX</div>
+	            <div class="title">Perfect Tits MILF Becomes Dirty Cheating Slut With Big Dick Waiter (Octavia Red)</div>
+				<div class="subtitle">
+					<p style="float: left;">722K views</p>
+					<svg t="1720928028526" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5099" width="20" height="20"><path d="M192 341.333333H96A59.306667 59.306667 0 0 0 42.666667 405.333333v469.333334A59.306667 59.306667 0 0 0 96 938.666667H192a42.666667 42.666667 0 0 0 42.666667-42.666667V384a42.666667 42.666667 0 0 0-42.666667-42.666667zM993.28 369.066667A63.573333 63.573333 0 0 0 938.666667 341.333333H512l104.106667-180.48a64.426667 64.426667 0 0 0 6.4-48.64 63.573333 63.573333 0 0 0-29.866667-38.826666l-73.813333-42.666667a64 64 0 0 0-87.466667 23.466667l-148.053333 256a45.226667 45.226667 0 0 0-5.546667 21.333333V896a42.666667 42.666667 0 0 0 42.666667 42.666667h439.466666a64 64 0 0 0 59.733334-42.666667l180.48-469.333333a64 64 0 0 0-6.826667-57.6z" p-id="5100" fill="#808080"></path></svg>
+					<p style="color: #808080; font-size: 13px;float: left;">93%</p>
+				</div>
+			</div>
+	        <div class="item">
+	            <img src="g2.gif">
+	        	<div class="subtitle">Property Sex</div>
+	            <div class="title">PropertySex Horny Agent with Huge Natural Tits Makes Sex Video with Homebuyer</div>
+				<div class="subtitle">
+					<p style="float: left;">739K views</p>
+					<svg t="1720928028526" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5099" width="20" height="20"><path d="M192 341.333333H96A59.306667 59.306667 0 0 0 42.666667 405.333333v469.333334A59.306667 59.306667 0 0 0 96 938.666667H192a42.666667 42.666667 0 0 0 42.666667-42.666667V384a42.666667 42.666667 0 0 0-42.666667-42.666667zM993.28 369.066667A63.573333 63.573333 0 0 0 938.666667 341.333333H512l104.106667-180.48a64.426667 64.426667 0 0 0 6.4-48.64 63.573333 63.573333 0 0 0-29.866667-38.826666l-73.813333-42.666667a64 64 0 0 0-87.466667 23.466667l-148.053333 256a45.226667 45.226667 0 0 0-5.546667 21.333333V896a42.666667 42.666667 0 0 0 42.666667 42.666667h439.466666a64 64 0 0 0 59.733334-42.666667l180.48-469.333333a64 64 0 0 0-6.826667-57.6z" p-id="5100" fill="#808080"></path></svg>
+					<p style="color: #808080; font-size: 13px;float: left;">95%</p>
+				</div>
+			</div>
+			<div class="item">
+			    <img src="g3.gif">
+				<div class="subtitle">POVD</div>
+			    <div class="title">My Pussy Loves Getting Stuffed While Soaking Up The Sun</div>
+				<div class="subtitle">
+					<p style="float: left;">789K views</p>
+					<svg t="1720928028526" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5099" width="20" height="20"><path d="M192 341.333333H96A59.306667 59.306667 0 0 0 42.666667 405.333333v469.333334A59.306667 59.306667 0 0 0 96 938.666667H192a42.666667 42.666667 0 0 0 42.666667-42.666667V384a42.666667 42.666667 0 0 0-42.666667-42.666667zM993.28 369.066667A63.573333 63.573333 0 0 0 938.666667 341.333333H512l104.106667-180.48a64.426667 64.426667 0 0 0 6.4-48.64 63.573333 63.573333 0 0 0-29.866667-38.826666l-73.813333-42.666667a64 64 0 0 0-87.466667 23.466667l-148.053333 256a45.226667 45.226667 0 0 0-5.546667 21.333333V896a42.666667 42.666667 0 0 0 42.666667 42.666667h439.466666a64 64 0 0 0 59.733334-42.666667l180.48-469.333333a64 64 0 0 0-6.826667-57.6z" p-id="5100" fill="#808080"></path></svg>
+					<p style="color: #808080; font-size: 13px;float: left;">93%</p>
+				</div>
+			</div>
+			<div class="item">
+			    <img src="g4.gif">
+				<div class="subtitle">Sex Cat</div>
+			    <div class="title">Flawless Busty Babes Octavia Red & Hailey Rose Bring the Holiday Party to the Bedroom - S19:E9</div>
+				<div class="subtitle">
+					<p style="float: left;">1.4M views</p>
+					<svg t="1720928028526" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5099" width="20" height="20"><path d="M192 341.333333H96A59.306667 59.306667 0 0 0 42.666667 405.333333v469.333334A59.306667 59.306667 0 0 0 96 938.666667H192a42.666667 42.666667 0 0 0 42.666667-42.666667V384a42.666667 42.666667 0 0 0-42.666667-42.666667zM993.28 369.066667A63.573333 63.573333 0 0 0 938.666667 341.333333H512l104.106667-180.48a64.426667 64.426667 0 0 0 6.4-48.64 63.573333 63.573333 0 0 0-29.866667-38.826666l-73.813333-42.666667a64 64 0 0 0-87.466667 23.466667l-148.053333 256a45.226667 45.226667 0 0 0-5.546667 21.333333V896a42.666667 42.666667 0 0 0 42.666667 42.666667h439.466666a64 64 0 0 0 59.733334-42.666667l180.48-469.333333a64 64 0 0 0-6.826667-57.6z" p-id="5100" fill="#808080"></path></svg>
+					<p style="color: #808080; font-size: 13px;float: left;">94%</p>
+				</div>
+			</div>
+	        <!-- 2th -->
+	        <div class="item">
+	            <img src="v1.png">
+	        	<div class="subtitle">FAMILY XXX</div>
+	            <div class="title">Stepsis Asking For Sexy Photos Escalates Quickly With Her Stepbro</div>
+				<div class="subtitle">
+					<p style="float: left;">1.2M views</p>
+					<svg t="1720928028526" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5099" width="20" height="20"><path d="M192 341.333333H96A59.306667 59.306667 0 0 0 42.666667 405.333333v469.333334A59.306667 59.306667 0 0 0 96 938.666667H192a42.666667 42.666667 0 0 0 42.666667-42.666667V384a42.666667 42.666667 0 0 0-42.666667-42.666667zM993.28 369.066667A63.573333 63.573333 0 0 0 938.666667 341.333333H512l104.106667-180.48a64.426667 64.426667 0 0 0 6.4-48.64 63.573333 63.573333 0 0 0-29.866667-38.826666l-73.813333-42.666667a64 64 0 0 0-87.466667 23.466667l-148.053333 256a45.226667 45.226667 0 0 0-5.546667 21.333333V896a42.666667 42.666667 0 0 0 42.666667 42.666667h439.466666a64 64 0 0 0 59.733334-42.666667l180.48-469.333333a64 64 0 0 0-6.826667-57.6z" p-id="5100" fill="#808080"></path></svg>
+					<p style="color: #808080; font-size: 13px;float: left;">95%</p>
+				</div>
+			</div>
+	        <div class="item">
+	            <img src="v2.png">
+	        	<div class="subtitle">Sex Cat</div>
+	            <div class="title">Little Step Sister Jerk Off Toy - Renee Rose - Anal Therapy - Alex Adams</div>
+				<div class="subtitle">
+					<p style="float: left;">908K views</p>
+					<svg t="1720928028526" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5099" width="20" height="20"><path d="M192 341.333333H96A59.306667 59.306667 0 0 0 42.666667 405.333333v469.333334A59.306667 59.306667 0 0 0 96 938.666667H192a42.666667 42.666667 0 0 0 42.666667-42.666667V384a42.666667 42.666667 0 0 0-42.666667-42.666667zM993.28 369.066667A63.573333 63.573333 0 0 0 938.666667 341.333333H512l104.106667-180.48a64.426667 64.426667 0 0 0 6.4-48.64 63.573333 63.573333 0 0 0-29.866667-38.826666l-73.813333-42.666667a64 64 0 0 0-87.466667 23.466667l-148.053333 256a45.226667 45.226667 0 0 0-5.546667 21.333333V896a42.666667 42.666667 0 0 0 42.666667 42.666667h439.466666a64 64 0 0 0 59.733334-42.666667l180.48-469.333333a64 64 0 0 0-6.826667-57.6z" p-id="5100" fill="#808080"></path></svg>
+					<p style="color: #808080; font-size: 13px;float: left;">96%</p>
+				</div>
+			</div>
+			<div class="item">
+			    <img src="v3.png">
+				<div class="subtitle">Sex Cat</div>
+			    <div class="title">Cheating on my Wife with Private Nurse</div>
+				<div class="subtitle">
+					<p style="float: left;">319K views</p>
+					<svg t="1720928028526" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5099" width="20" height="20"><path d="M192 341.333333H96A59.306667 59.306667 0 0 0 42.666667 405.333333v469.333334A59.306667 59.306667 0 0 0 96 938.666667H192a42.666667 42.666667 0 0 0 42.666667-42.666667V384a42.666667 42.666667 0 0 0-42.666667-42.666667zM993.28 369.066667A63.573333 63.573333 0 0 0 938.666667 341.333333H512l104.106667-180.48a64.426667 64.426667 0 0 0 6.4-48.64 63.573333 63.573333 0 0 0-29.866667-38.826666l-73.813333-42.666667a64 64 0 0 0-87.466667 23.466667l-148.053333 256a45.226667 45.226667 0 0 0-5.546667 21.333333V896a42.666667 42.666667 0 0 0 42.666667 42.666667h439.466666a64 64 0 0 0 59.733334-42.666667l180.48-469.333333a64 64 0 0 0-6.826667-57.6z" p-id="5100" fill="#808080"></path></svg>
+					<p style="color: #808080; font-size: 13px;float: left;">94%</p>
+				</div>
+			</div>
+			<div class="item">
+			    <img src="v4.png">
+				<div class="subtitle">Sex Cat</div>
+			    <div class="title">my roommate’s girlfriend wants a creampie</div>
+				<div class="subtitle">
+					<p style="float: left;">559K views</p>
+					<svg t="1720928028526" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5099" width="20" height="20"><path d="M192 341.333333H96A59.306667 59.306667 0 0 0 42.666667 405.333333v469.333334A59.306667 59.306667 0 0 0 96 938.666667H192a42.666667 42.666667 0 0 0 42.666667-42.666667V384a42.666667 42.666667 0 0 0-42.666667-42.666667zM993.28 369.066667A63.573333 63.573333 0 0 0 938.666667 341.333333H512l104.106667-180.48a64.426667 64.426667 0 0 0 6.4-48.64 63.573333 63.573333 0 0 0-29.866667-38.826666l-73.813333-42.666667a64 64 0 0 0-87.466667 23.466667l-148.053333 256a45.226667 45.226667 0 0 0-5.546667 21.333333V896a42.666667 42.666667 0 0 0 42.666667 42.666667h439.466666a64 64 0 0 0 59.733334-42.666667l180.48-469.333333a64 64 0 0 0-6.826667-57.6z" p-id="5100" fill="#808080"></path></svg>
+					<p style="color: #808080; font-size: 13px;float: left;">96%</p>
+				</div>
+			</div>
+			
+	    </div>
+		<div class="title" style="text-align: center;font-size: 26px;color: #fff;">
+			<p>Select sex props</p>
+			<p style="font-size: 16px;margin-top: -20px;color: #808080;">You can click on the card</p>
+		</div>
+		
+		<div class="playgame">
+			        <!-- 1th  -->
+			        <div class="item" onclick="flip(this)">
+			            <div class="flip-card">
+			                <div class="flip-card-inner flip-card-front">
+			                    <img src="card-bg.png">
+			                </div>
+			                <div class="flip-card-inner flip-card-back">
+			                    <img src="d1.png">
+			                </div>
+			            </div>
+			        </div>
+			        <div class="item" onclick="flip(this)">
+			            <div class="flip-card">
+			                <div class="flip-card-inner flip-card-front">
+			                    <img src="card-bg.png">
+			                </div>
+			                <div class="flip-card-inner flip-card-back">
+			                    <img src="d2.png">
+			                </div>
+			            </div>
+			        </div>
+			        <div class="item" onclick="flip(this)">
+			            <div class="flip-card">
+			                <div class="flip-card-inner flip-card-front">
+			                    <img src="card-bg.png">
+			                </div>
+			                <div class="flip-card-inner flip-card-back">
+			                    <img src="d3.png">
+			                </div>
+			            </div>
+			        </div>
+			        <div class="item" onclick="flip(this)">
+			            <div class="flip-card">
+			                <div class="flip-card-inner flip-card-front">
+			                    <img src="card-bg.png">
+			                </div>
+			                <div class="flip-card-inner flip-card-back">
+			                    <img src="d4.png">
+			                </div>
+			            </div>
+			        </div>
+			        <!-- 2th -->
+			        <div class="item" onclick="flip(this)">
+			            <div class="flip-card">
+			                <div class="flip-card-inner flip-card-front">
+			                    <img src="card-bg.png">
+			                </div>
+			                <div class="flip-card-inner flip-card-back">
+			                    <img src="d5.png">
+			                </div>
+			            </div>
+			        </div>
+			        <div class="item" onclick="flip(this)">
+			            <div class="flip-card">
+			                <div class="flip-card-inner flip-card-front">
+			                    <img src="card-bg.png">
+			                </div>
+			                <div class="flip-card-inner flip-card-back">
+			                    <img src="d6.png">
+			                </div>
+			            </div>
+			        </div>
+			        <div class="item" onclick="flip(this)">
+			            <div class="flip-card">
+			                <div class="flip-card-inner flip-card-front">
+			                    <img src="card-bg.png">
+			                </div>
+			                <div class="flip-card-inner flip-card-back">
+			                    <img src="d7.png">
+			                </div>
+			            </div>
+			        </div>
+			        <div class="item" onclick="flip(this)">
+			            <div class="flip-card">
+			                <div class="flip-card-inner flip-card-front">
+			                    <img src="card-bg.png">
+			                </div>
+			                <div class="flip-card-inner flip-card-back">
+			                    <img src="d8.png">
+			                </div>
+			            </div>
+			        </div>
+		</div>
+		<div id="footer" style="text-align: center;">
+			2024 PornCat all rights reserved
+		</div>
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+    const svg1 = document.getElementById('svg1');
+    const svg2 = document.getElementById('svg2');
+    const audio = document.getElementById('audio');
+    const dynamicAudio = document.getElementById('dynamicAudio'); // 新增的audio引用
+    const container = document.getElementById('container');
+    const light = document.getElementById('light');
+    const camera = document.getElementById('camera');
+    const popup = document.getElementById('popup');
+    const confirmButton = document.getElementById('confirmButton');
+    
+    const texts = ["MEOW", "MEOW", "MEOW"];
+    let isPlaying = false;
+    let textInterval;
+
+    confirmButton.addEventListener('click', function() {
+        popup.style.display = 'none';
+    });
+
+    svg1.addEventListener('click', toggleSVG);
+    svg2.addEventListener('click', toggleSVG);
+
+    function toggleSVG() {
+        if (isPlaying) {
+            svg2.style.display = 'none';
+            svg1.style.display = 'block';
+            audio.pause();
+            audio.currentTime = 0;
+            dynamicAudio.pause(); // 停止播放dynamic.mp3
+            dynamicAudio.currentTime = 0; // 重置dynamic.mp3
+            clearInterval(textInterval);
+            removeAllTexts();
+            light.src = 'light1.png';
+            camera.src = 'camera1.png';
+        } else {
+            svg1.style.display = 'none';
+            svg2.style.display = 'block';
+            audio.play();
+            dynamicAudio.play(); // 播放dynamic.mp3
+            textInterval = setInterval(displayRandomText, 500);
+            light.src = 'light2.png';
+            camera.src = 'camera2.png';
+        }
+        isPlaying = !isPlaying;
+    }
+
+    function displayRandomText() {
+        const randomText = texts[Math.floor(Math.random() * texts.length)];
+        const textElement = document.createElement('div');
+        textElement.className = 'random-text';
+        textElement.innerText = randomText;
+        const containerRect = container.getBoundingClientRect();
+        const maxX = containerRect.width - 150;
+        const maxY = containerRect.height - 50;
+        const offsetX = -75;
+        const offsetY = -25;
+        let top, left;
+
+        do {
+            top = Math.random() * (maxY - offsetY * 2) + offsetY;
+            left = Math.random() * (maxX - offsetX * 2) + offsetX;
+        } while (isOverlap(top, left, containerRect.width, containerRect.height));
+
+        textElement.style.top = top + 'px';
+        textElement.style.left = left + 'px';
+        container.appendChild(textElement);
+        
+        setTimeout(() => {
+            textElement.remove();
+        }, 2000);
+    }
+
+    function isOverlap(top, left, containerWidth, containerHeight) {
+        const svgRect = svg1.getBoundingClientRect();
+        const buffer = 50;
+
+        return (
+            top > svgRect.top - buffer &&
+            top < svgRect.bottom + buffer &&
+            left > svgRect.left - buffer &&
+            left < svgRect.right + buffer
+        );
+    }
+
+    function removeAllTexts() {
+        const texts = document.querySelectorAll('.random-text');
+        texts.forEach(el => el.remove());
+    }
+});
+
+     </script>
+</body>
+</html>
+</div>
