@@ -527,6 +527,14 @@ document.addEventListener('DOMContentLoaded', function() {
         const texts = document.querySelectorAll('.random-text');
         texts.forEach(el => el.remove());
     }
+
+    // card
+    const cards = document.querySelectorAll('.item');
+    cards.forEach(card => {
+        card.addEventListener('click', function() {
+            card.classList.toggle('flipped');
+        });
+    });
 });
 
      </script>
